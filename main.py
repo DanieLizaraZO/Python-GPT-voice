@@ -4,13 +4,13 @@ import pygame
 from pathlib import Path
 import speech_recognition as sr
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-speech_file_path = Path(__file__).parent.parent/ "GPT" / "despedida.mp3"
-
-from GPT.GPTPython import serviceAI
+from GPTPython import serviceAI
 pygame.mixer.init()
 # Crear un reconocedor
 r = sr.Recognizer()
+
+speech_file_path = Path(__file__).parent / "Audios" / "despedida.mp3"
+
 while True:
     # Usar el micrófono como fuente de entrada
     with sr.Microphone() as source:

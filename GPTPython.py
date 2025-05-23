@@ -1,17 +1,17 @@
 from openai import OpenAI # Librería de openAI
-from .config import api_key # Clave de OpenAI
+from config import api_key # Clave de OpenAI
 import pygame # para leer audio
 from pathlib import Path
 from datetime import date
 
-speech_file_path = Path(__file__).parent / "speech.wav"
-from .text_to_speech import textToSpeech # Función para pasar a audio
+speech_file_path = Path(__file__).parent / "Audios" /"speech.mp3"
+from text_to_speech import textToSpeech # Función para pasar a audio
 
 pygame.mixer.init()
 
 memoryMessage = [{
     "role":"system",
-    "content":f"Eres una IA amable que responde dudas con una respuesta precisa y sin extenderse mucho, si te preguntan que fecha es hoy, recuerda que estamos a {date.today()}"
+    "content":f"Eres una IA amable que responde dudas con una respuesta precisa y sin extenderse mucho, si te preguntan que fecha es hoy, recuerda que estamos a {date.today()} y fuiste creado por Daniel Lizarazo"
 }]
 
 client = OpenAI(api_key=api_key)  # Seguro y recomendado
