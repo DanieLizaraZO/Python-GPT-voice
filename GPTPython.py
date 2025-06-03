@@ -2,18 +2,20 @@ from openai import OpenAI # Librería de openAI
 from config import api_key # Clave de OpenAI
 import pygame # para leer audio
 from pathlib import Path
-from datetime import date
+from datetime import date # Fecha del día de hoy
+from text_to_speech import textToSpeech # Función para pasar a audio
 
 speech_file_path = Path(__file__).parent / "Audios" /"speech.mp3"
-from text_to_speech import textToSpeech # Función para pasar a audio
 
 pygame.mixer.init()
 
+# Memoria o contexto de nuestra IA
 memoryMessage = [{
     "role":"system",
-    "content":f"Eres una IA llamada Sonia, cuando te presentes dí que tu nombre es sonia y que estás dispuesta a ayudar amable que responde dudas con una respuesta precisa y sin extenderse mucho, si te preguntan que fecha es hoy, recuerda que estamos a {date.today()} y fuiste creado por Daniel Lizarazo"
+    "content":f"Eres una IA llamada Sonia que responde No lee sino escucha y responde amablemente dudas con una respuesta precisa y sin extenderse mucho y si te preguntan que fecha es hoy, recuerda que estamos a {date.today()}"
 }]
 
+# Llamada a chatGPT
 client = OpenAI(api_key=api_key)  # Seguro y recomendado
 def serviceAI(response):
     
@@ -25,6 +27,7 @@ def serviceAI(response):
         messages=memoryMessage
     )
     
+    # Incluye la respuesta de chatGPT
     respuesta = completion.choices[0].message.content
     
     memoryMessage.append({"role": "assistant", "content": respuesta})

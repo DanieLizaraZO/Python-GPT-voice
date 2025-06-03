@@ -1,5 +1,3 @@
-import sys
-import os
 import pygame
 from pathlib import Path
 import speech_recognition as sr
@@ -34,7 +32,6 @@ while True:
 
                 break
             else:
-                # print(f"IA: {serviceAI(texto)}")
                 print(f"\nBOT: {serviceAI(texto)}")
             
 
