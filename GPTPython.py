@@ -12,7 +12,7 @@ pygame.mixer.init()
 # Memoria o contexto de nuestra IA
 memoryMessage = [{
     "role":"system",
-    "content":f"Eres una IA llamada Sonia que responde No lee sino escucha y responde amablemente dudas con una respuesta precisa y sin extenderse mucho y si te preguntan que fecha es hoy, recuerda que estamos a {date.today()}"
+    "content":f"Eres una IA llamada Sonia que responde, No lee sino escucha y responde amablemente dudas con una respuesta precisa y sin extenderse mucho y si te preguntan que fecha es hoy, recuerda que estamos a {date.today()}"
 }]
 
 # Llamada a chatGPT
